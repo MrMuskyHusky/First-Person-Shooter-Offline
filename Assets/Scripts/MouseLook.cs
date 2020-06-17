@@ -18,8 +18,6 @@ public class MouseLook : MonoBehaviour
     [SerializeField] float rotationX = 0F;
     [SerializeField] float rotationY = 0F;
 
-    [SerializeField] private Camera cam = null;
-
     Quaternion originalRotation;
     private float _rotY;
 
