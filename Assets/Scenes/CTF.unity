@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: b05c85252df1b9a468693775ee8d3665, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 8d0ba991725ace24cba97ab236b8c493, type: 2}
 --- !u!54 &3790464
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -41837,6 +41837,7 @@ MonoBehaviour:
   maxAmmo: 12
   currentAmmo: 12
   clips: 0
+  maxClips: 0
   reloadTime: 2
   isReloading: 0
   isZoomingIn: 0
@@ -43943,6 +43944,7 @@ MonoBehaviour:
   walkSpeed: 4
   crouchSpeed: 2
   jumpSpeed: 1
+  maxHealth: 0
   curHealth: 100
   _gravity: 20
   hp: {fileID: 0}
@@ -60113,6 +60115,7 @@ MonoBehaviour:
   maxAmmo: 30
   currentAmmo: 30
   clips: 5
+  maxClips: 0
   reloadTime: 2
   isReloading: 0
   isZoomingIn: 0
