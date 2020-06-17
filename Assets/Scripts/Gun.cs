@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] public float damage = 10f;
-    [SerializeField] public float range = 100f;
-    [SerializeField] public float fireRate = 15f;
-    [SerializeField] public float impaceForce = 50f;
-    [SerializeField] public float bulletSpeed = 100f;
-    [SerializeField] private float nextTimeToFire = 0f;
+    public float damage = 10f;
+    public float range = 100f;
+    public float fireRate = 15f;
+    public float impaceForce = 50f;
+    public float bulletSpeed = 100f;
+    private float nextTimeToFire = 0f;
 
-    [SerializeField] public int maxAmmo = 10;
-    [SerializeField] public int currentAmmo = 30;
-    [SerializeField] public float reloadTime = 1f;
-    [SerializeField] public bool isReloading = false;
-    [SerializeField] public bool isZoomingIn = false;
-    [SerializeField] public bool isFiring = false;
+    public int maxAmmo;
+    public int currentAmmo;
+    public int clips;
+    public float reloadTime = 1f;
+    public bool isReloading = false;
+    public bool isZoomingIn = false;
+    public bool isFiring = false;
 
     public Camera fpsCam;
     public ParticleSystem muzzleFlash;
@@ -30,6 +31,7 @@ public class Gun : MonoBehaviour
     public GameObject myBullet;
     public GameObject bulletHole;
     public Text ammoCount;
+    public Text clipsCount;
 
     public Animator anim; 
     private PlayerController player;
@@ -48,6 +50,7 @@ public class Gun : MonoBehaviour
         }
         isReloading = false;
         anim.SetBool("Reloading", false);
+        clipsCount.text = clips.ToString("/ ") + clips;
     }
 
     void Update()
@@ -62,7 +65,7 @@ public class Gun : MonoBehaviour
         }
         //WAS ALWAYS RUNNING RELOAD....but YEAH NAH MATE
         ///so only run Reload on button press.... NAH YEAH THATS GOOD AYE!
-        if (Input.GetButtonDown("Reload"))
+        if (Input.GetButtonDown("Reload") && clips > 0)
         {
             if (currentAmmo < maxAmmo)
             {           
@@ -97,6 +100,9 @@ public class Gun : MonoBehaviour
         anim.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
         currentAmmo = maxAmmo;
+        ammoCount.text = currentAmmo.ToString();
+        clips--;
+        clipsCount.text = clips.ToString("/ ") + clips;
         isReloading = false;
     }
     void Zoom()

@@ -4,22 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] public float moveSpeed;
-    [SerializeField] public float runSpeed, walkSpeed, crouchSpeed, jumpSpeed;
-    [SerializeField] public float curHealth;
-    [SerializeField] public float _gravity = 20;
+    public float moveSpeed;
+    public float runSpeed, walkSpeed, crouchSpeed, jumpSpeed;
+    public float curHealth;
+    public float _gravity = 20;
     //Struct - Contains Multiple Variables (eg...3 floats)
     private Vector3 _moveDir;
-    [SerializeField] private Rigidbody rb = null;
+    private Rigidbody rb = null;
     //Reference Variable
-    [SerializeField] public Text hp;
+    public Text hp;
 
-    [SerializeField] public bool isZoomedIn;
-    [SerializeField] public bool damaged;
-    [SerializeField] public bool isGrounded;
+    public bool isZoomedIn;
+    public bool damaged;
+    public bool isGrounded;
 
-    [SerializeField] private float verticalDirection;
-    [SerializeField] private float horizontalDirection;
+    private float verticalDirection;
+    private float horizontalDirection;
 
     void Update()
     {
@@ -77,4 +77,8 @@ public class PlayerController : MonoBehaviour
         curHealth -= damage;
     }
 
+    public void Heal()
+    {
+
+    }
 }
