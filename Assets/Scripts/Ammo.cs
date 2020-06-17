@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Ammo : MonoBehaviour
 {
-    [SerializeField] PlayerController player = null;
+    [SerializeField] Gun gun = null;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            player.AddHealth(25f);
+            gun.Ammo(5);
             Destroy(gameObject);
         }
     }

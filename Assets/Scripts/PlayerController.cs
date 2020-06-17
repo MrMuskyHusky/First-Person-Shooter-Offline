@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public float runSpeed, walkSpeed, crouchSpeed, jumpSpeed;
-    public float curHealth;
+    public float maxHealth, curHealth;
     public float _gravity = 20;
     //Struct - Contains Multiple Variables (eg...3 floats)
     private Vector3 _moveDir;
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
-
+        hp.text = curHealth.ToString();
         Move(horizontalDirection, verticalDirection);
     }
 
@@ -77,8 +77,9 @@ public class PlayerController : MonoBehaviour
         curHealth -= damage;
     }
 
-    public void Heal()
+    public void AddHealth(float amount)
     {
-
+        curHealth += amount;
+        curHealth = Mathf.Clamp(curHealth, 0, maxHealth);
     }
 }

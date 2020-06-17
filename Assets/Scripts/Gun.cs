@@ -15,6 +15,7 @@ public class Gun : MonoBehaviour
     public int maxAmmo;
     public int currentAmmo;
     public int clips;
+    public int maxClips;
     public float reloadTime = 1f;
     public bool isReloading = false;
     public bool isZoomingIn = false;
@@ -51,6 +52,7 @@ public class Gun : MonoBehaviour
         isReloading = false;
         anim.SetBool("Reloading", false);
         clipsCount.text = clips.ToString("/ ") + clips;
+        clips = maxClips;
     }
 
     void Update()
@@ -83,6 +85,7 @@ public class Gun : MonoBehaviour
             anim.SetBool("Firing", false);
             isFiring = false;
         }
+        clipsCount.text = clips.ToString("/ ") + clips;
         Zoom();
         Walking();
         Cursor.lockState = CursorLockMode.Locked;
@@ -177,6 +180,12 @@ public class Gun : MonoBehaviour
         {
             anim.SetBool("Firing", false);
         }
+    }
+
+    public void Ammo(int amount)
+    {
+        clips += amount;
+        clips = Mathf.Clamp(clips, 0, maxClips);
     }
 }
         

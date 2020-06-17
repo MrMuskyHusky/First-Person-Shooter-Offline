@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CTF.unity
     guid: f5274ed26d694d44290e2f87b46fbcf3
+  - enabled: 1
+    path: Assets/Scenes/FFA.unity
+    guid: 8e8003122411fc446b9cc815e7c11092
   m_configObjects: {}
